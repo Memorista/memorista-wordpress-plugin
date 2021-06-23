@@ -1,7 +1,8 @@
 #memorista-settings-container {
     display: flex;
     flex-direction: column;
-    height: 1100px;
+    /* 97px because 32px admin bar + 65px padding bottom of wpbody-content */
+    height: calc(100vh - 97px);
 }
 
 #memorista-settings-container #memorista-installation-status {
