@@ -10,7 +10,7 @@
         document.getElementById('memorista-admin-container').contentWindow.postMessage(JSON.stringify({
             name: 'wordpress',
             hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
-        }));
+        }), 'https://memorista.io');
     </script>
     <script type="text/javascript">
         window.addEventListener('message', event => {
