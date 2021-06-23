@@ -5,7 +5,7 @@ Plugin Name: Memorista
 Plugin URI: https://memorista.io
 Description: Let your guests share their memories by creating your own guestbook with Memorista.
 Text Domain: memorista
-Version: 1.0
+Version: 1.0.0
 Author: Memorista
 Author URI: https://memorista.io
 License: TBD
@@ -18,62 +18,7 @@ function set_memorista_plugin_page()
     }
 
     $apiKey = get_option("wp-memorista-plugin-api-key");
-    ?>
-    <div class="memorista-settings-container" style="height:100vh;">
-        <h1>Memorista</h1>
-     
-        <button id="collapsible" type="button" class="collapsible">
-            Guide - <?php if (
-                $apiKey !== "" &&
-                $apiKey != null
-            ) { ?> <span style="color:green"> your setup is ready </span> <?php } else { ?>  <span style="color:red"> you have to set API key!!! </span> <?php } ?>
-        </button>
-        <div class="content">
-            <ol>
-                <li>
-                    Fill your key
-                </li>
-            
-            <form method="post" action="" id="form1" style="margin-top:20px; margin-bottom:20px;">
-                <label>Your key</label>
-                <input type="text" name="apiKey" value="<?php echo $apiKey; ?>" style="min-width:300px;">
-                <button name="submit" value="send">Save</button>
-            </form>
-                <li>
-                    Use shortcode <b>[show_memorista]</b> on your page
-                </li>
-                <li>
-                    Next step
-                </li>
-            </ol>
-        </div>
-
-        <script>
-            const coll = document.getElementById('collapsible');
-
-            coll.addEventListener("click", () => {
-                coll.classList.toggle("active");
-                setHeight()
-            });
-
-            if ('<?php echo $apiKey; ?>' === '') {
-                coll.nextElementSibling.style.maxHeight = '100%'
-            }
-
-            function setHeight(){
-                const content = coll.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            }
-        </script>
-
-        <iframe src="https://memorista.io/admin" width="100%" height="972px">
-    </div>
-
-    <?php
+    include "memorista-admin-page.php";
 }
 
 function show_shortcode()
