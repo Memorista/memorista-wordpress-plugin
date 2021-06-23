@@ -6,7 +6,12 @@
     <?php } ?>
 
     <iframe src="https://memorista.io/admin" id="memorista-admin-container">
-    <?php if ($apiKey == "" || $apiKey == null) { ?>
+    <script type="text/javascript">
+        document.getElementById('memorista-admin-container').contentWindow.postMessage(JSON.stringify({
+            name: 'wordpress',
+            hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
+        }));
+    </script>
     <script type="text/javascript">
         window.addEventListener('message', event => {
             if (event.origin !== 'https://memorista.io') return;
@@ -35,8 +40,5 @@
 
             form.submit();
         }, false);
-
-        document.getElementById('memorista-admin-container').contentWindow.postMessage('requestApiKeyForWordpressInstallation')
     </script>
-    <?php } ?>
 </div>
