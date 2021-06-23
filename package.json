@@ -1,0 +1,13 @@
+{
+  "name": "memorista-wordpress-plugin",
+  "version": "1.0.0",
+  "description": "Let your guests share their memories by creating your own guestbook with Memorista.",
+  "main": "memorista-plugin.php",
+  "scripts": {
+    "prettier": "prettier src --write"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "0.17.1",
+    "prettier": "2.3.1"
+  }
+}
