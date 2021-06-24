@@ -13,13 +13,13 @@ jobs:
       - uses: datamonsters/replace-action@v2
         with:
           files: 'src/memorista-plugin.php'
-          replacements: '1.0.0=$CI_ACTION_REF_NAME'
+          replacements: '1.0.0=${{ $CI_REF_NAME }}'
       - uses: thedoctor0/zip-release@0.4.2
         with:
           filename: 'memorista.zip'
           directory: 'src'
       - uses: softprops/action-gh-release@v1
         with:
-          files: memorista.zip
+          files: src/memorista.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
