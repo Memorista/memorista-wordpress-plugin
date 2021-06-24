@@ -16,7 +16,7 @@ jobs:
           replacements: '1.0.0=$CI_ACTION_REF_NAME'
       - uses: montudor/action-zip@v1
         with:
-          args: cd src; zip -qq -r ../memorista.zip .
+          args: zip -r memorista.zip src/*
       - uses: softprops/action-gh-release@v1
         with:
           files: memorista.zip
