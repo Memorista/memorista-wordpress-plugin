@@ -35,14 +35,13 @@
         }, false);
     </script>
 
-    <iframe src="https://memorista.io/admin" id="memorista-admin-container">
     <script type="text/javascript">
-        const iframe = document.getElementById('memorista-admin-container');
-        iframe.addEventListener('load', () => {
+        const onIframeLoad = iframe => {
             iframe.contentWindow.postMessage(JSON.stringify({
                 name: 'wordpress',
                 hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
             }), 'https://memorista.io');
-        });
+        }
     </script>
+    <iframe src="https://memorista.io/admin" id="memorista-admin-container" onload="onIframeLoad(this)">
 </div>
