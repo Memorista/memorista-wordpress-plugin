@@ -32,7 +32,7 @@ function show_shortcode()
 <script>
     memorista.init({
         container: document.getElementById('memorista-root'),
-        apiKey: '$apiKey';
+        apiKey: '$apiKey'
     });
 </script>
 EOT;
