@@ -16,3 +16,8 @@ jobs:
       - uses: montudor/action-zip@v1.0.0
         with:
           args: zip -qq -r memorista.zip src
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: memorista.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
