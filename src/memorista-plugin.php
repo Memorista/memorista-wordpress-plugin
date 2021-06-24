@@ -45,8 +45,9 @@ function memorista_plugin_settings_options()
         "Memorista",
         "Memorista",
         "manage_options",
-        "my-plugin-settings",
-        "set_memorista_plugin_page"
+        "memorista",
+        "set_memorista_plugin_page",
+        "dashicons-format-chat"
     );
 }
 
