@@ -4,14 +4,7 @@
         Please complete the installation by signing in with your Memorista account.
     </div>
     <?php } ?>
-
-    <iframe src="https://memorista.io/admin" id="memorista-admin-container">
-    <script type="text/javascript">
-        document.getElementById('memorista-admin-container').contentWindow.postMessage(JSON.stringify({
-            name: 'wordpress',
-            hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
-        }), 'https://memorista.io');
-    </script>
+    
     <script type="text/javascript">
         window.addEventListener('message', event => {
             if (event.origin !== 'https://memorista.io') return;
@@ -40,5 +33,16 @@
 
             form.submit();
         }, false);
+    </script>
+
+    <iframe src="https://memorista.io/admin" id="memorista-admin-container">
+    <script type="text/javascript">
+        const iframe = document.getElementById('memorista-admin-container');
+        iframe.addEventListener('load', () => {
+            iframe.contentWindow.postMessage(JSON.stringify({
+                name: 'wordpress',
+                hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
+            }), 'https://memorista.io');
+        });
     </script>
 </div>
