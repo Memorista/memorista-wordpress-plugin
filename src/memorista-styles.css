@@ -1,8 +1,13 @@
-/* Style the button that is used to open and close the collapsible content */
-.memorista-settings-container .collapsible {
+#memorista-settings-container {
+    display: flex;
+    flex-direction: column;
+    /* 97px because 32px admin bar + 65px padding bottom of wpbody-content */
+    height: calc(100vh - 97px);
+}
+
+#memorista-settings-container #memorista-installation-status {
     background-color: #001529;
     color: #fff;
-    cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
@@ -11,18 +16,6 @@
     font-size: 15px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.memorista-settings-container .active,
-.collapsible:hover {
-    background-color: #1890ff;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.memorista-settings-container .content {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    margin-bottom: 10px;
+#memorista-settings-container #memorista-admin-container {
+    flex: 1;
 }
