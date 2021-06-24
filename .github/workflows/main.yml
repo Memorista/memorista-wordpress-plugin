@@ -9,13 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: FranzDiebold/github-env-vars-action@v2
       - uses: datamonsters/replace-action@v2
         with:
           files: 'src/memorista-plugin.php'
           replacements: '1.0.0=$CI_ACTION_REF_NAME'
-      - uses: montudor/action-zip@v1.0.0
+      - uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r memorista.zip src
+          args: zip -qq -r memorista.zip *
+          working-directory: src
       - uses: softprops/action-gh-release@v1
         with:
           files: memorista.zip
