@@ -1,62 +1,71 @@
-<div id="memorista-settings-container">    
-    <script type="text/javascript">
-        let signInWindow = null;
+<script type="text/javascript">
+let authorizationWindow = null;
 
-        window.addEventListener('message', event => {
-            if (event.origin !== 'https://memorista.io') return;
+window.addEventListener("message", (event) => {
+    if (!event.data) return;
+    if (typeof event.data !== "string") return;
+    if (!event.data.includes("memorista.approvePluginActivation")) return;
 
-            let apiKey;
-            try {
-                apiKey = JSON.parse(event.data).apiKey;
-            } catch (exc) {
-                console.error(exc);
-            }
-            if (!apiKey) return;
+    let apiKey;
+    try {
+        apiKey = JSON.parse(event.data).apiKey;
+    } catch (exc) {
+        console.error(exc);
+    }
+    if (!apiKey) return;
 
-            const container = document.getElementById('memorista-settings-container');
+    const container = document.getElementById("memorista-settings-container");
 
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '';
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = "";
 
-            const apiKeyInput = document.createElement('input');
-            apiKeyInput.setAttribute('type', 'hidden');
-            apiKeyInput.setAttribute('name', 'apiKey');
-            apiKeyInput.setAttribute('value', apiKey);
+    const apiKeyInput = document.createElement("input");
+    apiKeyInput.setAttribute("type", "hidden");
+    apiKeyInput.setAttribute("name", "apiKey");
+    apiKeyInput.setAttribute("value", apiKey);
 
-            form.appendChild(apiKeyInput);
-            container.appendChild(form);
+    form.appendChild(apiKeyInput);
+    container.appendChild(form);
 
-            signInWindow.close();
-            signInWindow = null;
-            form.submit();
-        }, false);
-    </script>
+    authorizationWindow.close();
+    authorizationWindow = null;
+    form.submit();
+}, false);
 
+window.addEventListener("message", (event) => {
+    if (event.data !== "memorista.readyForPluginActivation") return;
+
+    authorizationWindow.postMessage(
+        JSON.stringify({
+            type: "memorista.requestPluginActivation",
+            name: "Wordpress",
+            isActivated: !!"<?php echo $apiKey; ?>",
+        }),
+        event.origin
+    );
+});
+
+const authorize = () => {
+    if (authorizationWindow === null || authorizationWindow.closed) {
+        authorizationWindow = window.open(
+            "https://guesty-admin-ui-git-plugin-authorization-floriangyger.vercel.app/admin",
+            "AuthorizationWindow",
+            "menubar=no,width=1024,height=768"
+        );
+    } else {
+        authorizationWindow.focus();
+    }
+};
+</script>
+
+<div id="memorista-settings-container">
     <h1>Memorista</h1>
     <p>You are using the latest version of Memorista.</p>
-
     <?php if ($apiKey == "" || $apiKey == null) { ?>
-    <script type="text/javascript">
-        const onSignIn = () => {
-            if (signInWindow === null || signInWindow.closed) {
-                signInWindow = window.open('https://memorista.io/admin', 'SignInWindow', 'menubar=no,width=1024,height=768');
-
-                // TODO: Replace setTimeout workaround with event listener that registers when Memorista Admin UI is ready
-                setTimeout(() => {
-                    signInWindow.postMessage(JSON.stringify({
-                        name: 'wordpress',
-                        hasCompletedInstallation: !!'<?php echo $apiKey; ?>'
-                    }), 'https://memorista.io');
-                }, 1000);
-            } else {
-                signInWindow.focus();
-            }
-        }
-    </script>
     <h2>Getting Started</h2>
-    <p>Before you can start using Memorista, you need to sign in with your Memorista account.</p>
-    <button class="button button-primary" onclick="onSignIn();">Sign In</button>
+    <p>Before you can start using Memorista, you need to authorize this plugin with your Memorista account.</p>
+    <button class="button button-primary" onclick="authorize();">Authorize</button>
     <?php } else { ?>
     <h2>Manage</h2>
     <p>You can manage all entries and your guestbook settings in the Memorista Admin interface.</p>
