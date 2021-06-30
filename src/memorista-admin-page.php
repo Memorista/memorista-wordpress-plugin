@@ -51,7 +51,7 @@ const authorize = () => {
         authorizationWindow = window.open(
             "https://guesty-admin-ui-git-plugin-authorization-floriangyger.vercel.app/admin",
             "AuthorizationWindow",
-            "menubar=no,width=1024,height=768"
+            "menubar=no,width=400,height=600,top=100,left=100"
         );
     } else {
         authorizationWindow.focus();
