@@ -33,23 +33,10 @@ window.addEventListener("message", (event) => {
     form.submit();
 }, false);
 
-window.addEventListener("message", (event) => {
-    if (event.data !== "memorista.readyForPluginActivation") return;
-
-    authorizationWindow.postMessage(
-        JSON.stringify({
-            type: "memorista.requestPluginActivation",
-            name: "Wordpress",
-            isActivated: !!"<?php echo $apiKey; ?>",
-        }),
-        event.origin
-    );
-});
-
 const authorize = () => {
     if (authorizationWindow === null || authorizationWindow.closed) {
         authorizationWindow = window.open(
-            "https://guesty-admin-ui-git-plugin-authorization-floriangyger.vercel.app/admin",
+            "https://memorista.io/admin/plugin/activate/Wordpress",
             "AuthorizationWindow",
             "menubar=no,width=400,height=600,top=100,left=100"
         );
