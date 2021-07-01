@@ -1,21 +1,3 @@
-#memorista-settings-container {
-    display: flex;
-    flex-direction: column;
-    /* 97px because 32px admin bar + 65px padding bottom of wpbody-content */
-    height: calc(100vh - 97px);
-}
-
-#memorista-settings-container #memorista-installation-status {
-    background-color: #001529;
-    color: #fff;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-#memorista-settings-container #memorista-admin-container {
-    flex: 1;
+#memorista-settings-container h2 {
+    margin-top: 50px;
 }
