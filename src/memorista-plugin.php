@@ -11,19 +11,9 @@ Author URI: https://memorista.io
 License: TBD
 */
 
-function set_memorista_plugin_page()
+function memorista_client_ui()
 {
-    if (!empty($_POST)) {
-        update_option("wp-memorista-plugin-api-key", $_POST["apiKey"]);
-    }
-
-    $apiKey = get_option("wp-memorista-plugin-api-key");
-    include "memorista-admin-page.php";
-}
-
-function show_shortcode()
-{
-    $apiKey = get_option("wp-memorista-plugin-api-key");
+    $apiKey = get_option("memorista_api_key");
 
     return <<<EOT
 <div id="memorista-root"></div>
@@ -36,21 +26,35 @@ function show_shortcode()
 EOT;
 }
 
-function memorista_plugin_settings_options()
+function memorista_plugin_options()
 {
-    //Add a settings page for this plugin to the Settings menu.
+    if (!empty($_POST)) {
+        update_option("memorista_api_key", $_POST["apiKey"]);
+    }
+
+    $apiKey = get_option("memorista_api_key");
+    include "memorista-admin-page.php";
+}
+
+function memorista_plugin_menu()
+{
     add_menu_page(
         "Memorista",
         "Memorista",
         "manage_options",
         "memorista",
-        "set_memorista_plugin_page",
+        "memorista_plugin_options",
         "dashicons-format-chat"
     );
 }
 
-add_action("admin_menu", "memorista_plugin_settings_options");
-add_shortcode("show_memorista", "show_shortcode");
+function memorista_uninstall()
+{
+    delete_option("memorista_api_key");
+}
+
+add_action("admin_menu", "memorista_plugin_menu");
+add_shortcode("memorista", "memorista_client_ui");
 wp_enqueue_style("styles", plugin_dir_url(__FILE__) . "memorista-styles.css");
 
 wp_enqueue_script(
@@ -61,3 +65,5 @@ wp_enqueue_style(
     "memorista",
     plugin_dir_url(__FILE__) . "memorista-client-ui.css"
 );
+
+register_uninstall_hook(__FILE__, "memorista_uninstall");

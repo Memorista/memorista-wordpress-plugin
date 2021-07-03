@@ -58,12 +58,12 @@ const authorize = () => {
     <p>You can manage all entries and your guestbook settings in the Memorista Admin interface.</p>
     <a href="https://memorista.io/admin" target="_blank" class="button button-primary">Go to Memorista Admin</a>
     <h2>Embed</h2>
-    <p>Memorista is ready to be used. Please use the Shortcode <code>[show_memorista]</code> to embed the guestbook on the desired page.</p>
+    <p>Memorista is ready to be used. Please use the Shortcode <code>[memorista]</code> to embed the guestbook on the desired page.</p>
     <table class="form-table" role="presentation">
         <tbody>
             <tr>
                 <th scope="row"><label for="shortcode">Shortcode</label></th>
-                <td><input name="shortcode" type="text" id="blogname" value="[show_memorista]" class="regular-text" readonly></td>
+                <td><input name="shortcode" type="text" id="blogname" value="[memorista]" class="regular-text" readonly></td>
             </tr>
         </tbody>
     </table>
