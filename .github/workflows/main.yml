@@ -18,6 +18,16 @@ jobs:
         with:
           filename: 'memorista.zip'
           directory: 'src'
+      - uses: carlosperate/download-file-action@v1.0.3
+        with:
+          file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.js
+          file-name: memorista-client-ui.js
+          location: src
+      - uses: carlosperate/download-file-action@v1.0.3
+        with:
+          file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.css
+          file-name: memorista-client-ui.css
+          location: src
       - uses: softprops/action-gh-release@v1
         with:
           files: src/memorista.zip

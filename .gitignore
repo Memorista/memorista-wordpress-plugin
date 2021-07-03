@@ -1,2 +1,4 @@
 node_modules
 build
+src/memorista-client-ui.css
+src/memorista-client-ui.js

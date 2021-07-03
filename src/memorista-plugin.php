@@ -27,8 +27,6 @@ function show_shortcode()
 
     return <<<EOT
 <div id="memorista-root"></div>
-<link rel="stylesheet" href="https://unpkg.com/@memorista/client-ui@1/dist/index.css" />
-<script crossorigin src="https://unpkg.com/@memorista/client-ui@1/dist/index.js"></script>
 <script>
     memorista.init({
         container: document.getElementById('memorista-root'),
@@ -54,3 +52,12 @@ function memorista_plugin_settings_options()
 add_action("admin_menu", "memorista_plugin_settings_options");
 add_shortcode("show_memorista", "show_shortcode");
 wp_enqueue_style("styles", plugin_dir_url(__FILE__) . "memorista-styles.css");
+
+wp_enqueue_script(
+    "memorista",
+    plugin_dir_url(__FILE__) . "memorista-client-ui.js"
+);
+wp_enqueue_style(
+    "memorista",
+    plugin_dir_url(__FILE__) . "memorista-client-ui.css"
+);
