@@ -25,45 +25,29 @@ function memorista_client_ui()
 </script>
 EOT;
 }
+wp_enqueue_script("memorista", plugin_dir_url(__FILE__) . "memorista-client-ui.js");
+wp_enqueue_style("memorista", plugin_dir_url(__FILE__) . "memorista-client-ui.css");
+add_shortcode("memorista", "memorista_client_ui");
 
-function memorista_plugin_options()
+function memorista_options()
 {
     if (!empty($_POST)) {
         update_option("memorista_api_key", $_POST["apiKey"]);
     }
 
-    $apiKey = get_option("memorista_api_key");
-    include "memorista-admin-page.php";
-}
+    wp_enqueue_style("styles", plugin_dir_url(__FILE__) . "memorista-options.css");
 
-function memorista_plugin_menu()
-{
-    add_menu_page(
-        "Memorista",
-        "Memorista",
-        "manage_options",
-        "memorista",
-        "memorista_plugin_options",
-        "dashicons-format-chat"
-    );
+    $apiKey = get_option("memorista_api_key");
+    include "memorista-options.php";
 }
+function memorista_menu()
+{
+    add_menu_page("Memorista", "Memorista", "manage_options", "memorista", "memorista_options", "dashicons-format-chat");
+}
+add_action("admin_menu", "memorista_menu");
 
 function memorista_uninstall()
 {
     delete_option("memorista_api_key");
 }
-
-add_action("admin_menu", "memorista_plugin_menu");
-add_shortcode("memorista", "memorista_client_ui");
-wp_enqueue_style("styles", plugin_dir_url(__FILE__) . "memorista-styles.css");
-
-wp_enqueue_script(
-    "memorista",
-    plugin_dir_url(__FILE__) . "memorista-client-ui.js"
-);
-wp_enqueue_style(
-    "memorista",
-    plugin_dir_url(__FILE__) . "memorista-client-ui.css"
-);
-
 register_uninstall_hook(__FILE__, "memorista_uninstall");
