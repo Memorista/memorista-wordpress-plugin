@@ -14,10 +14,6 @@ jobs:
           include: 'src/memorista-plugin.php'
           find: '1.0.0'
           replace: ${{ github.event.release.tag_name }}
-      - uses: thedoctor0/zip-release@0.4.2
-        with:
-          filename: 'memorista.zip'
-          directory: 'src'
       - uses: carlosperate/download-file-action@v1.0.3
         with:
           file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.js
@@ -28,6 +24,10 @@ jobs:
           file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.css
           file-name: memorista-client-ui.css
           location: src
+      - uses: thedoctor0/zip-release@0.4.2
+        with:
+          filename: 'memorista.zip'
+          directory: 'src'
       - uses: softprops/action-gh-release@v1
         with:
           files: src/memorista.zip
