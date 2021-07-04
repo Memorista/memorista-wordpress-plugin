@@ -58,17 +58,20 @@ const authorize = () => {
     <p>You can manage all entries and your guestbook settings in the Memorista Admin interface.</p>
     <a href="https://memorista.io/admin" target="_blank" class="button button-primary">Go to Memorista Admin</a>
     <h2>Embed</h2>
-    <p>Memorista is ready to be used. Please use the Shortcode <code>[show_memorista]</code> to embed the guestbook on the desired page.</p>
+    <p>Memorista is ready to be used. Please use the shortcode <code>[memorista]</code> to embed the guestbook on the desired page.</p>
     <table class="form-table" role="presentation">
         <tbody>
             <tr>
                 <th scope="row"><label for="shortcode">Shortcode</label></th>
-                <td><input name="shortcode" type="text" id="blogname" value="[show_memorista]" class="regular-text" readonly></td>
+                <td><input name="shortcode" type="text" id="blogname" value="[memorista]" class="regular-text" readonly></td>
             </tr>
         </tbody>
     </table>
-    <h2>Sign Out</h2>
-    <p>To use a different Memorista account, please sign out first.</p>
-    <button class="button">Sign Out</button>
+    <h2>Reset</h2>
+    <p>If you want to authorize a different guestbook, you can use the below reset button to revoke your current API key.</p>
+    <form method="post">
+        <input type="hidden" name="apiKey" value="" />
+        <input type="submit" class="button" value="Reset" />
+    </form>
     <?php } ?>
 </div>
