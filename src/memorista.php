@@ -1,15 +1,19 @@
 <?php
 
-/*
-Plugin Name: Memorista
-Plugin URI: https://memorista.io
-Description: Let your guests share their memories by creating your own guestbook with Memorista.
-Text Domain: memorista
-Version: 1.0.0
-Author: Memorista
-Author URI: https://memorista.io
-License: TBD
-*/
+/**
+ * Plugin Name:       Memorista
+ * Plugin URI:        https://memorista.io
+ * Description:       Let your guests share their memories by creating your own guestbook with Memorista.
+ * Version:           1.0.0
+ * Requires at least: 2.7
+ * Requires PHP:      5.6
+ * Author:            Memorista
+ * Author URI:        https://memorista.io
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       memorista
+ * Domain Path:       /memorista
+ */
 
 function memorista_client_ui()
 {
