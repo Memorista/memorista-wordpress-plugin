@@ -12,7 +12,6 @@ const download = (url, fileName) => {
         directory: "./src",
         cloneFiles: false,
     });
-
     downloader.download();
 };
 
