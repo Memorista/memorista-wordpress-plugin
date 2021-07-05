@@ -1,10 +1,8 @@
-const Downloader = require("nodejs-file-downloader");
 const fs = require("fs");
+const Downloader = require("nodejs-file-downloader");
 
 const download = (url, fileName) => {
-    if (fs.existsSync(`./src/${fileName}`)) {
-        return;
-    }
+    if (fs.existsSync(`./src/${fileName}`)) return;
 
     const downloader = new Downloader({
         url,
