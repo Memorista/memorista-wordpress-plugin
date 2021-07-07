@@ -9,21 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+          cache: 'npm'
       - uses: jacobtomlinson/gha-find-replace@0.1.4
         with:
           include: 'src/memorista-plugin.php'
           find: '1.0.0'
           replace: ${{ github.event.release.tag_name }}
-      - uses: carlosperate/download-file-action@v1.0.3
-        with:
-          file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.js
-          file-name: memorista-client-ui.js
-          location: src
-      - uses: carlosperate/download-file-action@v1.0.3
-        with:
-          file-url: https://unpkg.com/@memorista/client-ui@1/dist/index.css
-          file-name: memorista-client-ui.css
-          location: src
+      - run: npm ci
       - uses: thedoctor0/zip-release@0.4.2
         with:
           filename: 'memorista.zip'

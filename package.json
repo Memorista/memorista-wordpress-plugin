@@ -5,11 +5,13 @@
     "main": "memorista-plugin.php",
     "scripts": {
         "start": "cpx -w src/**/* build/www/wp-content/plugins/memorista",
-        "prettier": "prettier src --write"
+        "prettier": "prettier src --write",
+        "install": "node scripts/download-client-ui.js"
     },
     "devDependencies": {
         "@prettier/plugin-php": "0.17.1",
         "cpx": "1.5.0",
+        "nodejs-file-downloader": "4.7.1",
         "prettier": "2.3.1"
     }
 }
