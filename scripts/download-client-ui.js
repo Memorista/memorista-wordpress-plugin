@@ -13,5 +13,4 @@ const download = (url, fileName) => {
     downloader.download();
 };
 
-download("https://unpkg.com/@memorista/client-ui@1/dist/index.js", "memorista-client-ui.js");
-download("https://unpkg.com/@memorista/client-ui@1/dist/index.css", "memorista-client-ui.css");
+download("https://unpkg.com/@memorista/client-ui@2/dist/index.bundle.js", "memorista-client-ui.js");
