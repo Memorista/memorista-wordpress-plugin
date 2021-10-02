@@ -5,7 +5,6 @@
     "main": "memorista-plugin.php",
     "scripts": {
         "start": "cpx -w src/**/* build/www/wp-content/plugins/memorista",
-        "prettier": "prettier src --write",
         "install": "node scripts/download-client-ui.js"
     },
     "devDependencies": {
