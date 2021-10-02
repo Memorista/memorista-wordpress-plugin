@@ -2,6 +2,7 @@
     "name": "memorista-wordpress-plugin",
     "version": "1.0.0",
     "description": "Let your guests share their memories by creating your own guestbook with Memorista.",
+    "license": "MIT",
     "main": "memorista-plugin.php",
     "scripts": {
         "start": "cpx -w src/**/* build/www/wp-content/plugins/memorista",
