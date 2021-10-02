@@ -13,7 +13,7 @@
 ### Via shortcode
 
 ```
-[shortcode]
+[memorista]
 ```
 
 ## :raising_hand: Contributors
