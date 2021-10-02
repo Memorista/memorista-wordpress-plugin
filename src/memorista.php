@@ -19,7 +19,7 @@ function memorista_client_ui()
 {
     $apiKey = get_option("memorista_api_key");
 
-    return "<x-memorista api-key=\"$apiKey\" />";
+    return "<x-memorista api-key=\"$apiKey\"></x-memorista>";
 }
 wp_enqueue_script("memorista", plugin_dir_url(__FILE__) . "memorista-client-ui.js");
 add_shortcode("memorista", "memorista_client_ui");
