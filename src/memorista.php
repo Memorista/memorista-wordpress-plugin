@@ -9,8 +9,8 @@
  * Requires PHP:      5.6
  * Author:            Memorista
  * Author URI:        https://memorista.io
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * License:           MIT
+ * License URI:       https://en.wikipedia.org/wiki/MIT_License
  * Text Domain:       memorista
  * Domain Path:       /memorista
  */
