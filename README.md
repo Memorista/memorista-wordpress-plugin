@@ -4,10 +4,9 @@
 
 ## :star: Features
 
-- Guestbook details
-- Lists entries
-- Entry creation form
-- Simple usage with shortcode
+- 1-step initial setup using the Memorista authorization prompt
+- Embed Client UI widget on any page
+- Manage entries in the Admin UI
 
 ## :arrow_forward: Usage
 
