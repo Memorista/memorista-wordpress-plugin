@@ -35,4 +35,4 @@ We use [GitHub Flow](https://guides.github.com/introduction/flow/), so all code 
 
 ### License
 
-By contributing, you agree that your contributions will be licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
