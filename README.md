@@ -4,9 +4,9 @@
 
 ## :star: Features
 
-- 1-step initial setup using the Memorista authorization prompt
-- Embed Client UI widget on any page
-- Manage entries in the Admin UI
+- 1-step initial setup using the authorization prompt
+- Shortcode to embed the Client UI widget on any page
+- Entry management in the Admin UI
 
 ## :arrow_forward: Usage
 
