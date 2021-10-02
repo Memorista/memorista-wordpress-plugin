@@ -10,7 +10,7 @@
  * Author:            Memorista
  * Author URI:        https://memorista.io
  * License:           MIT
- * License URI:       https://en.wikipedia.org/wiki/MIT_License
+ * License URI:       https://github.com/Memorista/memorista-wordpress-plugin/blob/main/LICENSE
  * Text Domain:       memorista
  * Domain Path:       /memorista
  */
