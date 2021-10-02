@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       Memorista
- * Plugin URI:        https://memorista.io
+ * Plugin URI:        https://github.com/Memorista/memorista-wordpress-plugin
  * Description:       Let your guests share their memories by creating your own guestbook with Memorista.
  * Version:           1.0.0
  * Requires at least: 2.7
