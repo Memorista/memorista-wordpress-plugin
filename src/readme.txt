@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: memorista
-Tags: guestbook, guest book, comments
+Tags: guestbook, guest book, comments, widget, memory, memorista
 Requires at least: 2.7
 Tested up to: 5.8
 Requires PHP: 5.6
