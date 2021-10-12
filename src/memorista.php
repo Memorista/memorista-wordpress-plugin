@@ -17,7 +17,7 @@
 
 function memorista_client_ui()
 {
-    $apiKey = get_option("memorista_api_key");
+    $apiKey = esc_html(get_option("memorista_api_key"));
 
     return "<x-memorista api-key=\"$apiKey\"></x-memorista>";
 }
@@ -27,7 +27,7 @@ add_shortcode("memorista", "memorista_client_ui");
 function memorista_options()
 {
     if (!empty($_POST)) {
-        update_option("memorista_api_key", $_POST["apiKey"]);
+        update_option("memorista_api_key", sanitize_text_field($_POST["apiKey"]));
     }
 
     wp_enqueue_style("styles", plugin_dir_url(__FILE__) . "memorista-options.css");
