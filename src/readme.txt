@@ -3,6 +3,7 @@ Contributors: memorista
 Tags: guestbook, guest book, comments, widget, memory, memorista
 Requires at least: 2.7
 Tested up to: 5.8
+Stable tag: 1.0.0
 Requires PHP: 5.6
 License: MIT
 License URI: https://github.com/Memorista/memorista-wordpress-plugin/blob/main/LICENSE
