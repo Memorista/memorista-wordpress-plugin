@@ -15,13 +15,18 @@
  * Domain Path:       /memorista
  */
 
+function enqueue_memorista_client_ui_script()
+{
+    wp_enqueue_script("memorista-client-ui", plugin_dir_url(__FILE__) . "memorista-client-ui.js");
+}
+add_action("wp_enqueue_scripts", "enqueue_memorista_client_ui_script");
+
 function memorista_client_ui()
 {
     $apiKey = esc_html(get_option("memorista_api_key"));
 
     return "<x-memorista api-key=\"$apiKey\"></x-memorista>";
 }
-wp_enqueue_script("memorista", plugin_dir_url(__FILE__) . "memorista-client-ui.js");
 add_shortcode("memorista", "memorista_client_ui");
 
 function memorista_options()
