@@ -28,7 +28,7 @@ window.addEventListener("message", (event) => {
     const nonceInput = document.createElement("input");
     nonceInput.setAttribute("type", "hidden");
     nonceInput.setAttribute("name", "nonce");
-    nonceInput.setAttribute("value", "<?php echo wp_create_nonce('memorista_activate'); ?>");
+    nonceInput.setAttribute("value", "<?php echo wp_create_nonce("memorista_activate"); ?>");
 
     form.appendChild(apiKeyInput);
     form.appendChild(nonceInput);
@@ -83,7 +83,7 @@ const authorize = () => {
             <p>If you want to authorize a different guestbook, you can use the below reset button to revoke your current API key.</p>
             <form method="post">
                 <input type="hidden" name="apiKey" value="" />
-                <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('memorista_reset'); ?>" />
+                <input type="hidden" name="nonce" value="<?php echo wp_create_nonce("memorista_reset"); ?>" />
                 <input type="submit" class="button" value="Reset" />
             </form>
         <?php } ?>
