@@ -26,7 +26,9 @@ add_shortcode("memorista", "memorista_client_ui");
 
 function memorista_options()
 {
-    if (!empty($_POST)) {
+    $canActivatePlugin = current_user_can("activate_plugins");
+
+    if (!empty($_POST) && $canActivatePlugin) {
         update_option("memorista_api_key", sanitize_text_field($_POST["apiKey"]));
     }
 
