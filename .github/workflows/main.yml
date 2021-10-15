@@ -38,7 +38,7 @@ jobs:
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
 
-      # Create plugin ZIP
+      # Attach ZIP to GitHub release
       - uses: thedoctor0/zip-release@0.4.2
         with:
           filename: 'memorista.zip'
