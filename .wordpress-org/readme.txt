@@ -16,7 +16,7 @@ Offer guestbook functionality on any WordPress site in just a few steps.
 
 *Let your guests share their memories by creating your own guestbook with Memorista.*
 
-This plugin helps you integrate your Memorista guestbook onto your site. If you don't have a Memorista account yet, you can [create one for free at memorista.io](https://memorista.io/admin).
+This plugin helps you integrate your Memorista guestbook onto your site. If you don't have a Memorista account yet, you can create one for free at [memorista.io](https://memorista.io).
 
 #### Features
 
