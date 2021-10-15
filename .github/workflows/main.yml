@@ -41,7 +41,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SOURCE_DIR: src
+          SOURCE_DIR: src/
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
 
