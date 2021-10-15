@@ -33,19 +33,6 @@ jobs:
       - name: Build plugin
         run: npm ci
 
-      # Create plugin ZIP
-      - name: Create plugin ZIP
-        uses: thedoctor0/zip-release@0.4.2
-        with:
-          filename: 'memorista.zip'
-          directory: 'src'
-      - name: Attach plugin ZIP to GitHub release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: src/memorista.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Deploy to WordPress plugin directory
       - name: Prepare src directory for WordPress deployment
         run: mv .wordpress-org/readme.txt src/readme.txt
@@ -57,3 +44,16 @@ jobs:
           SOURCE_DIR: src
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
+
+      # Attach ZIP to GitHub release
+      - name: Create plugin ZIP
+        uses: thedoctor0/zip-release@0.4.2
+        with:
+          filename: 'memorista.zip'
+          directory: 'src'
+      - name: Attach plugin ZIP to GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: src/memorista.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
