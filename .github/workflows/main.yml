@@ -44,6 +44,8 @@ jobs:
           SOURCE_DIR: src/
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
+      - name: Clean up src directory after WordPress deployment
+        run: mv src/readme.txt .wordpress-org/readme.txt
 
       # Attach ZIP to GitHub release
       - name: Create plugin ZIP
