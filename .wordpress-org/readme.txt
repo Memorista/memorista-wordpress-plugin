@@ -27,10 +27,10 @@ This plugin helps you integrate your Memorista guestbook onto your site. If you 
 
 == Installation ==
 
-* Install the plugin through the admin page "Plugins".
-* Alternatively you can install the plugin manually by downloading ZIP file from our [releases page](https://github.com/Memorista/memorista-wordpress-plugin/releases).
-* Activate the plugin through the "Plugins" menu in WordPress.
-* Place the shortcode on the desired page to display the guestbook:
+- Install the plugin through the admin page "Plugins".
+- Alternatively you can install the plugin manually by downloading ZIP file from our [releases page](https://github.com/Memorista/memorista-wordpress-plugin/releases).
+- Activate the plugin through the "Plugins" menu in WordPress.
+- Place the shortcode on the desired page to display the guestbook:
 
     [memorista]
 
