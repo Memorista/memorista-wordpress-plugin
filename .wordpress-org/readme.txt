@@ -12,22 +12,27 @@ Offer guestbook functionality on any WordPress site in just a few steps.
 
 == Description ==
 
-Let your guests share their memories by creating your own guestbook with Memorista.
+#### Memorista for WordPress
 
-If you don't have a Memorista account yet, you can create one for free at: https://memorista.io/admin
+*Let your guests share their memories by creating your own guestbook with Memorista.*
 
-Features:
-* You can create your own Guestbook for any purpose in just 5 minutes.
-* In the Admin UI you can manage all entries including the ability to remove undesirable submissions.
-* Memorista speaks your language. Simply define the language of your Guestbook in the settings and the Memorista Widget automatically adjusts without you having to update anything.
-* Customize the title, description and language and make it blend in with your WordPress site. Your users will be able to post entries without ever leaving your website.
+This plugin helps you integrate your Memorista guestbook onto your site. If you don't have a Memorista account yet, you can [create one for free at memorista.io](https://memorista.io/admin).
+
+#### Features
+
+- Create your own Guestbook for any purpose in just 5 minutes.
+- Admin UI to manage all entries including the ability to remove undesirable submissions.
+- Memorista speaks your language. Simply define the language of your Guestbook in the settings and the Memorista Widget automatically adjusts without you having to update anything.
+- Customize the title, description and language and make it blend in with your WordPress site. Your users will be able to post entries without ever leaving your website.
 
 == Installation ==
 
 * Install the plugin through the admin page "Plugins".
 * Alternatively you can install the plugin manually by downloading ZIP file from our [releases page](https://github.com/Memorista/memorista-wordpress-plugin/releases).
-* Activate the plugin through the 'Plugins' menu in WordPress.
-* Place the '[memorista]' shortcode on your desired page to display the guestbook.
+* Activate the plugin through the "Plugins" menu in WordPress.
+* Place the shortcode on the desired page to display the guestbook:
+
+    [memorista]
 
 == Screenshots ==
 
