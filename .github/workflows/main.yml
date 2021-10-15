@@ -8,40 +8,49 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
           cache: 'npm'
 
       # Update version numbers
-      - uses: jacobtomlinson/gha-find-replace@0.1.4
+      - name: Set current version number in memorista.php
+        uses: jacobtomlinson/gha-find-replace@0.1.4
         with:
           include: 'src/memorista.php'
           find: '1.0.0'
           replace: ${{ github.event.release.tag_name }}
-      - uses: jacobtomlinson/gha-find-replace@0.1.4
+      - name: Set current version number in .wordpress-org/readme.txt
+        uses: jacobtomlinson/gha-find-replace@0.1.4
         with:
           include: '.wordpress-org/readme.txt'
           find: '1.0.0'
           replace: ${{ github.event.release.tag_name }}
-      - run: npm ci
+      - name: Build plugin
+        run: npm ci
 
       # Create plugin ZIP
-      - uses: thedoctor0/zip-release@0.4.2
+      - name: Create plugin ZIP
+        uses: thedoctor0/zip-release@0.4.2
         with:
           filename: 'memorista.zip'
           directory: 'src'
-      - uses: softprops/action-gh-release@v1
+      - name: Attach plugin ZIP to GitHub release
+        uses: softprops/action-gh-release@v1
         with:
           files: src/memorista.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Deploy to WordPress plugin directory
-      - run: mv .wordpress-org/readme.txt src/readme.txt
-      - uses: nk-o/action-wordpress-plugin-deploy@v0.0.5
+      - name: Prepare src directory for WordPress deployment
+        run: mv .wordpress-org/readme.txt src/readme.txt
+      - name: Deploy to WordPress plugin directory
+        uses: nk-o/action-wordpress-plugin-deploy@v0.0.5
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
