@@ -2,7 +2,7 @@
 Contributors: memorista
 Tags: guestbook, guest book, comments, widget, memory, memorista
 Requires at least: 2.7
-Tested up to: 6.0
+Tested up to: 6.1.1
 Stable tag: 1.0.0
 Requires PHP: 5.6
 License: MIT
