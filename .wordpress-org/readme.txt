@@ -1,6 +1,6 @@
-=== Plugin Name ===
+=== Memorista ===
 Contributors: memorista
-Tags: guestbook, guest book, comments, widget, memory, memorista
+Tags: guestbook, guest book, widget, memorista
 Requires at least: 2.7
 Tested up to: 6.4.1
 Stable tag: 1.0.0
@@ -10,7 +10,9 @@ License URI: https://github.com/Memorista/memorista-wordpress-plugin/blob/main/L
 
 Offer guestbook functionality on any WordPress site in just a few steps.
 
-== Memorista is shutting down ==
+== Description ==
+
+#### Memorista is shutting down
 
 We would like to sincerely thank all users of the WordPress plugin **Memorista**. Your trust, feedback, and long-standing support mean a great deal to us, and we are deeply grateful that you chose Memorista to collect and share memories on your websites.
 
@@ -25,8 +27,6 @@ If you are interested in **taking over, pursuing, or maintaining the Memorista p
 Please note that **we accept no liability** for any data loss after the shutdown date.
 
 Once again, **thank you very much** for being part of the Memorista journey. Your support has truly meant everything to us.
-
-== Description ==
 
 #### Memorista for WordPress
 
