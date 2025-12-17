@@ -44,18 +44,6 @@ jobs:
           SOURCE_DIR: src/
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
+          VERSION: 1.5.5
       - name: Clean up src directory after WordPress deployment
         run: mv src/readme.txt .wordpress-org/readme.txt
-
-      # Attach ZIP to GitHub release
-      - name: Create plugin ZIP
-        uses: thedoctor0/zip-release@0.4.2
-        with:
-          filename: 'memorista.zip'
-          directory: 'src'
-      - name: Attach plugin ZIP to GitHub release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: src/memorista.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
