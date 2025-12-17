@@ -23,13 +23,13 @@ jobs:
         with:
           include: 'src/memorista.php'
           find: '1.0.0'
-          replace: '1.5.5'
+          replace: '1.5.6'
       - name: Set current version number in .wordpress-org/readme.txt
         uses: jacobtomlinson/gha-find-replace@0.1.4
         with:
           include: '.wordpress-org/readme.txt'
           find: '1.0.0'
-          replace: '1.5.5'
+          replace: '1.5.6'
       - name: Build plugin
         run: npm ci
 
@@ -44,6 +44,6 @@ jobs:
           SOURCE_DIR: src/
           ASSETS_DIR: .wordpress-org/assets
           SLUG: memorista
-          VERSION: 1.5.5
+          VERSION: 1.5.6
       - name: Clean up src directory after WordPress deployment
         run: mv src/readme.txt .wordpress-org/readme.txt
